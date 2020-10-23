@@ -8,6 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+/*
+*
+* Contrôleur du programme:
+*
+* GROS TRAVAIL sur la rationalisation des fonctions évennementielles!
+*/
+
 namespace HOLE_FOODS
 {
     public partial class Form1 : Form
