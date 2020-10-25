@@ -32,7 +32,8 @@ namespace HOLE_FOODS
         {
             nosProduits = new Panier();
             ticketActuel = new Ticket();
-
+            listeProduit = new ListeProduit("some CSV file path"); // ToDo!
+            Produit_LB.Items.AddRange(listeProduit.getListeProduit());
         }
         private void Produit_LB_SelectedIndexChanged(object sender, EventArgs e)
         {
