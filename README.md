@@ -8,7 +8,7 @@ The code will be implemented in a second time, class by class
 
 # TODO:
 
-### Ticket:
+### Ticket: *NATHAN* branch:
 - Rendre dynamique le **chemin d'accès** et les noms de tickets.
 - Ajouter les routines de **gestion des exceptions**, nottament au niveau des ouvertures / écritures dans les fichiers de ticket
 - Ajouter le **corps du ticket** avant et après la liste d'articles
