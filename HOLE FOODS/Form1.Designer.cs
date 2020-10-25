@@ -187,7 +187,7 @@
             this.Controls.Add(this.Prix_TB);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "HoleFoods Cash Register";
             this.ResumeLayout(false);
             this.PerformLayout();
 
