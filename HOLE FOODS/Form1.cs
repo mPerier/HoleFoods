@@ -28,18 +28,12 @@ namespace HOLE_FOODS
         {
             InitializeComponent();
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void NVPanier_PB_Click(object sender, EventArgs e)
         {
+            nosProduits = new Panier();
 
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
+        private void Produit_LB_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -49,12 +43,7 @@ namespace HOLE_FOODS
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Produit_LB_SelectedIndexChanged(object sender, EventArgs e)
+        private void Poids_TB_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -64,10 +53,10 @@ namespace HOLE_FOODS
 
         }
 
-        private void NVPanier_PB_Click(object sender, EventArgs e)
+        private void genererTicketButton_Click(object sender, EventArgs e)
         {
-            nosProduits = new Panier();
 
         }
+
     }
 }
