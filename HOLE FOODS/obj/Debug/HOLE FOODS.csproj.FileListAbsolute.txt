@@ -7,3 +7,12 @@ C:\Users\c.janisse\source\repos\HOLE FOODS\HOLE FOODS\bin\Debug\HOLE FOODS.pdb
 C:\Users\c.janisse\source\repos\HOLE FOODS\HOLE FOODS\obj\Debug\HOLE_FOODS.Form1.resources
 C:\Users\c.janisse\source\repos\HOLE FOODS\HOLE FOODS\obj\Debug\HOLE FOODS.exe
 C:\Users\c.janisse\source\repos\HOLE FOODS\HOLE FOODS\obj\Debug\HOLE FOODS.pdb
+D:\documents\Documents\GITPROJECTS\HoleFoods\HOLE FOODS\obj\Debug\HOLE FOODS.csprojAssemblyReference.cache
+D:\documents\Documents\GITPROJECTS\HoleFoods\HOLE FOODS\obj\Debug\HOLE_FOODS.Form1.resources
+D:\documents\Documents\GITPROJECTS\HoleFoods\HOLE FOODS\obj\Debug\HOLE_FOODS.Properties.Resources.resources
+D:\documents\Documents\GITPROJECTS\HoleFoods\HOLE FOODS\obj\Debug\HOLE FOODS.csproj.GenerateResource.cache
+D:\documents\Documents\GITPROJECTS\HoleFoods\HOLE FOODS\obj\Debug\HOLE FOODS.csproj.CoreCompileInputs.cache
+D:\documents\Documents\GITPROJECTS\HoleFoods\HOLE FOODS\obj\Debug\HOLE FOODS.exe
+D:\documents\Documents\GITPROJECTS\HoleFoods\HOLE FOODS\obj\Debug\HOLE FOODS.pdb
+D:\documents\Documents\GITPROJECTS\HoleFoods\HOLE FOODS\bin\Debug\HOLE FOODS.exe
+D:\documents\Documents\GITPROJECTS\HoleFoods\HOLE FOODS\bin\Debug\HOLE FOODS.pdb
