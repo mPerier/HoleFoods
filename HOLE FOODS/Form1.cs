@@ -47,7 +47,8 @@ namespace HOLE_FOODS
 
         private void Poids_TB_TextChanged(object sender, EventArgs e)
         {
-
+            // Total = PrixUnitaire * Poids
+            Total_TB.Text = Convert.ToString(listeProduit.getPrix(Produit_LB.SelectedItem.ToString()) * Convert.ToDouble(Poids_TB.Text)); 
         }
 
         private void validerLegumeButton_Click(object sender, EventArgs e)
@@ -63,7 +64,13 @@ namespace HOLE_FOODS
 
         private void genererTicketButton_Click(object sender, EventArgs e)
         {
-
+            // Generer Ticket
+            ticketActuel.genererTicket();
+            // RAZ interface
+            ticketActuel.razTicketTampon();
+            Produit_LB.SelectedItem = "";
+            Poids_TB.Text = "";
+            Total_TB.Text = "";
         }
 
     }

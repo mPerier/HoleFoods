@@ -25,7 +25,7 @@ namespace HOLE_FOODS
             // Retourne un tableau de Strings qui sera utilisé nottament pour mettre à jour le ListBox Produit_LB
         }
 
-        public double getPrix(double nomProduit)
+        public double getPrix(String nomProduit)
         {
             return 0;  // NON IMPLEMENTE
             // Retourne le prix associé à la clé "nomProduit"
