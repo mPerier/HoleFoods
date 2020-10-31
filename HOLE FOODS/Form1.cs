@@ -48,18 +48,24 @@ namespace HOLE_FOODS
         private void Poids_TB_TextChanged(object sender, EventArgs e)
         {
             // Total = PrixUnitaire * Poids
-            Total_TB.Text = Convert.ToString(listeProduit.getPrix(Produit_LB.SelectedItem.ToString()) * Convert.ToDouble(Poids_TB.Text)); 
+            if (Produit_LB.SelectedItem != null)
+            {
+                Total_TB.Text = Convert.ToString(listeProduit.getPrix(Produit_LB.SelectedItem.ToString()) * Convert.ToDouble(Poids_TB.Text));
+            }
         }
 
         private void validerLegumeButton_Click(object sender, EventArgs e)
         {
-            // On initialise un nouveau produit à partir des éléments de l'interface
-            Produit produitAjout;
-            produitAjout = new Produit(Produit_LB.SelectedItem.ToString(), Convert.ToDouble(Prix_TB.Text), Convert.ToDouble(Poids_TB.Text));
-            // Puis on l'ajoute au panier
-            nosProduits.ajouterPanier(produitAjout);
-            // Avant d'ajouter sa decription au ticket
-            ticketActuel.ajouterLigne(produitAjout.extraireString());
+            if (Produit_LB.SelectedItem != null)
+            {
+                // On initialise un nouveau produit à partir des éléments de l'interface
+                Produit produitAjout;
+                produitAjout = new Produit(Produit_LB.SelectedItem.ToString(), Convert.ToDouble(Prix_TB.Text), Convert.ToDouble(Poids_TB.Text));
+                // Puis on l'ajoute au panier
+                nosProduits.ajouterPanier(produitAjout);
+                // Avant d'ajouter sa decription au ticket
+                ticketActuel.ajouterLigne(produitAjout.extraireString());
+            }
         }
 
         private void genererTicketButton_Click(object sender, EventArgs e)
