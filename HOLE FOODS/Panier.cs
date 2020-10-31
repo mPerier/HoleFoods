@@ -22,10 +22,5 @@ namespace HOLE_FOODS
         {
 
         }
-
-        public double getPanier()
-        {
-            // Retourne la liste des produits du panier.
-        }
     }
 }

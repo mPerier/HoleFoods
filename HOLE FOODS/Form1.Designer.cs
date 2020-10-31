@@ -66,6 +66,7 @@
             this.Poids_TB.Name = "Poids_TB";
             this.Poids_TB.Size = new System.Drawing.Size(72, 20);
             this.Poids_TB.TabIndex = 4;
+            this.Poids_TB.TextChanged += new System.EventHandler(this.Poids_TB_TextChanged);
             // 
             // validerLegumeButton
             // 
@@ -76,6 +77,7 @@
             this.validerLegumeButton.TabIndex = 5;
             this.validerLegumeButton.Text = "Valider";
             this.validerLegumeButton.UseVisualStyleBackColor = true;
+            this.validerLegumeButton.Click += new System.EventHandler(this.validerLegumeButton_Click);
             // 
             // Produit_LB
             // 
@@ -95,6 +97,7 @@
             this.genererTicketButton.TabIndex = 7;
             this.genererTicketButton.Text = "Editer ticket";
             this.genererTicketButton.UseVisualStyleBackColor = true;
+            this.genererTicketButton.Click += new System.EventHandler(this.genererTicketButton_Click);
             // 
             // TotalPanierTextBox
             // 
@@ -105,7 +108,6 @@
             this.TotalPanierTextBox.Size = new System.Drawing.Size(65, 20);
             this.TotalPanierTextBox.TabIndex = 8;
             this.TotalPanierTextBox.Text = "Total panier :";
-            this.TotalPanierTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // Total_TB
             // 
@@ -145,7 +147,6 @@
             this.label2.Size = new System.Drawing.Size(33, 13);
             this.label2.TabIndex = 16;
             this.label2.Text = "Poids";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -186,7 +187,7 @@
             this.Controls.Add(this.Prix_TB);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "HoleFoods Cash Register";
             this.ResumeLayout(false);
             this.PerformLayout();
 

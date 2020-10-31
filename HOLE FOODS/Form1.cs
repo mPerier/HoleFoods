@@ -28,18 +28,14 @@ namespace HOLE_FOODS
         {
             InitializeComponent();
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void NVPanier_PB_Click(object sender, EventArgs e)
         {
-
+            nosProduits = new Panier();
+            ticketActuel = new Ticket();
+            listeProduit = new ListeProduit("some CSV file path"); // ToDo!
+            Produit_LB.Items.AddRange(listeProduit.getListeProduit());
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
+        private void Produit_LB_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -49,25 +45,39 @@ namespace HOLE_FOODS
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Poids_TB_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void Produit_LB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            // Total = PrixUnitaire * Poids
+            if (Produit_LB.SelectedItem != null)
+            {
+                Total_TB.Text = Convert.ToString(listeProduit.getPrix(Produit_LB.SelectedItem.ToString()) * Convert.ToDouble(Poids_TB.Text));
+            }
         }
 
         private void validerLegumeButton_Click(object sender, EventArgs e)
         {
-
+            if (Produit_LB.SelectedItem != null)
+            {
+                // On initialise un nouveau produit à partir des éléments de l'interface
+                Produit produitAjout;
+                produitAjout = new Produit(Produit_LB.SelectedItem.ToString(), Convert.ToDouble(Prix_TB.Text), Convert.ToDouble(Poids_TB.Text));
+                // Puis on l'ajoute au panier
+                nosProduits.ajouterPanier(produitAjout);
+                // Avant d'ajouter sa decription au ticket
+                ticketActuel.ajouterLigne(produitAjout.extraireString());
+            }
         }
 
-        private void NVPanier_PB_Click(object sender, EventArgs e)
+        private void genererTicketButton_Click(object sender, EventArgs e)
         {
-            nosProduits = new Panier();
-
+            // Generer Ticket
+            ticketActuel.genererTicket();
+            // RAZ interface
+            ticketActuel.razTicketTampon();
+            Produit_LB.SelectedItem = "";
+            Poids_TB.Text = "";
+            Total_TB.Text = "";
         }
+
     }
 }
