@@ -13,23 +13,22 @@ namespace HOLE_FOODS
 {
     public class Ticket
     {
-        // Provisoirement, le chemin d'accès au répertoire contenant les tickets est écrit en dur
-        private static String ticketsPath;
 
         // Le StreamWriter qui sera utilisé pour écrire dans le fichier tampon est un attribut de l'objet car ouvert lors de l'instanciation de l'objet
         private StreamWriter sw;
-        
-        // Compteur (statique) qui permet d'obtenir le numero de ticket actuel
-        private static int numTicket = 1;
 
-        public Ticket()
+        // Compteur (statique) qui permet d'obtenir le numero de ticket actuel
+        private static int numTicket = 0;
+
+        public Ticket(String ticketsPath)
         {
             // On ouvre le fichier tampon à la création du ticket, on incrémente aussi le numéro de ticker.
-            sw = new StreamWriter(ticketsPath+"tampon.txt");
+            sw = new StreamWriter(ticketsPath + "tampon.txt");
+
             numTicket++;
         }
 
-        public void ajouterLigne(String ligne)
+        public void ajouterLigne(String ligne, String ticketsPath)
         {
             // Si le fichier est disponible en écriture, on y écrit la ligne passée en argument.
             if (sw.BaseStream != null)
@@ -42,20 +41,22 @@ namespace HOLE_FOODS
             }
         }
 
-        public void genererTicket()
+        public void genererTicket(String ticketsPath, double total)
         {
             // La "génération" du ticket se contente de copier le ticket tampon sous un nouveau non.
             sw.Close();
             // Le nom du ticket à le path suivant:
             //  C:\Users\"John Doe"\Documents\Ticket N°35 -- 161020 - 141000
-            System.IO.File.Copy(ticketsPath + "tampon.txt", ticketsPath + "Ticket N° " + numTicket + " --  "+ DateTime.Now.ToString("ddmmyy - HHMMSS"));
-            razTicketTampon();
+            System.IO.File.Copy(ticketsPath + "tampon.txt", ticketsPath + "Ticket N° " + numTicket + " --  " + DateTime.Now.ToString("ddmmyy - HHMMSS")); razTicketTampon();
+            //Ecrire le total + le reste
+            //utiliser le total
+
         }
 
-        public void razTicketTampon()
+        public void razTicketTampon(String ticketsPath)
         {
             // La réinitialisation du ticket tampon écrit un caractère vide sur la totalité du fichier.
-            System.IO.File.WriteAllText(ticketsPath + "tampon.txt",string.Empty);
+            System.IO.File.WriteAllText(ticketsPath + "tampon.txt", string.Empty);
 
         }
     }
