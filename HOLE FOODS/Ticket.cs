@@ -14,13 +14,13 @@ namespace HOLE_FOODS
     public class Ticket
     {
         // Provisoirement, le chemin d'accès au répertoire contenant les tickets est écrit en dur
-        private static String ticketsPath = (@"C:\Users\c.janisse\source\repos\HOLE FOODS\HOLE FOODS\Logs\");
+        private static String ticketsPath;
 
         // Le StreamWriter qui sera utilisé pour écrire dans le fichier tampon est un attribut de l'objet car ouvert lors de l'instanciation de l'objet
         private StreamWriter sw;
         
         // Compteur (statique) qui permet d'obtenir le numero de ticket actuel
-        private static int numTicket;
+        private static int numTicket = 1;
 
         public Ticket()
         {

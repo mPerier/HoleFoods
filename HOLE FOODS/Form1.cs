@@ -79,5 +79,25 @@ namespace HOLE_FOODS
             Total_TB.Text = "";
         }
 
+        private void ticketPath_PB_Click(object sender, EventArgs e)
+        {
+
+            // Show the FolderBrowserDialog.
+            DialogResult result = ticketPathRecover_FD.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                /**folderName = ticketPathRecover_FD.SelectedPath;
+                if (!fileOpened)
+                {
+                    // No file is opened, bring up openFileDialog in selected path.
+                    openFileDialog1.InitialDirectory = folderName;
+                    openFileDialog1.FileName = null;
+                    openMenuItem.PerformClick();
+                }
+    */
+            }
+
+
+        }
     }
 }
