@@ -110,9 +110,17 @@ namespace HOLE_FOODS
             {
                 chemins.setTicketPath(ticketPathRecover_FD.SelectedPath);
             }
-
-
         }
+
+        private void CsvFilePath_PB_Click(object sender, EventArgs e)
+        {
+            DialogResult result = csvFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                chemins.setCsvFilePath(csvFileDialog.FileName);
+            }
+        }
+
         // Methode utilisée pour calculer le Prix à chaque changement de l'interface
         private void calculPrix()
         {
