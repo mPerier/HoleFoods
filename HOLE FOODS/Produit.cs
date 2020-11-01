@@ -28,20 +28,17 @@ namespace HOLE_FOODS
             this.poids = Poids;
         }
 
-        private int myVar;
-
-        public int MyProperty
-        {
-            get { return myVar; }
-            set { myVar = value; }
-        }
-
         public String extraireString()
         {
             //Retourne la chaine de caractères à écrire dans le ticket, par exemple:
             //  "Bananes - 4 kg : 7,90 €"
 
             return this.nomProduit+" -  " + this.poids + " kg :  " + this.prix;
+        }
+
+        public double getPrix()
+        {
+            return this.prix;
         }
     }
 }

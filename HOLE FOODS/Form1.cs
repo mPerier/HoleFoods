@@ -12,7 +12,6 @@ using System.Windows.Forms;
 *
 * Contrôleur du programme:
 *
-* GROS TRAVAIL sur la rationalisation des fonctions évennementielles!
 */
 
 namespace HOLE_FOODS
@@ -32,26 +31,29 @@ namespace HOLE_FOODS
         {
             nosProduits = new Panier();
             ticketActuel = new Ticket();
-            listeProduit = new ListeProduit("some CSV file path"); // ToDo!
+            try
+            {
+                listeProduit = new ListeProduit("some CSV file path"); // ToDo!
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("Erreur lors de l'ouverture du fichier CSV contenant la liste des tickets: " + error);
+            }
             Produit_LB.Items.AddRange(listeProduit.getListeProduit());
         }
         private void Produit_LB_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            calculPrix();
         }
 
         private void legumeTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            calculPrix();
         }
 
         private void Poids_TB_TextChanged(object sender, EventArgs e)
         {
-            // Total = PrixUnitaire * Poids
-            if (Produit_LB.SelectedItem != null)
-            {
-                Total_TB.Text = Convert.ToString(listeProduit.getPrix(Produit_LB.SelectedItem.ToString()) * Convert.ToDouble(Poids_TB.Text));
-            }
+            calculPrix();
         }
 
         private void validerLegumeButton_Click(object sender, EventArgs e)
@@ -77,6 +79,26 @@ namespace HOLE_FOODS
             Produit_LB.SelectedItem = "";
             Poids_TB.Text = "";
             Total_TB.Text = "";
+        }
+
+        // Methode utilisée pour calculer le Prix à chaque changement de l'interface
+        private void calculPrix()
+        {
+            // Total = PrixUnitaire * Poids
+
+            // Avant de calculer, on vérifie que tous les éléments nécessaires au calcul sont présents
+            if (Produit_LB.SelectedItem != null && Prix_TB.Text != "" && Poids_TB.Text != "")
+            {
+                try
+                {
+                    // Une exception peut arriver si il y a incohérence entre l'élément spécifié dans la ListBox et les éléments déclarés dans Listeproduit
+                    Total_TB.Text = Convert.ToString(listeProduit.getPrix(Produit_LB.SelectedItem.ToString()) * Convert.ToDouble(Poids_TB.Text));
+                }
+                catch (Exception error)
+                {
+                    Console.WriteLine("Erreur lors du calculs du prix, un champ est peut-être mal renseigné?: " + error);
+                }
+            }
         }
 
     }
