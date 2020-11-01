@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -21,25 +22,44 @@ namespace HOLE_FOODS
         Panier nosProduits;
         Ticket ticketActuel;
         ListeProduit listeProduit;
+        Chemins chemins;
 
 
         public Form1()
         {
             InitializeComponent();
+            chemins = new Chemins();
         }
+
         private void NVPanier_PB_Click(object sender, EventArgs e)
         {
-            nosProduits = new Panier();
-            ticketActuel = new Ticket();
-            try
+            // Avant de créer un nouveau panier, on vérifie que les chemins d'accès pour le dossier des tickets et le CSV des produits existe.
+            if (!File.Exists(chemins.getCsvFilePath()))
             {
-                listeProduit = new ListeProduit("some CSV file path"); // ToDo!
+                MessageBox.Show("Impossible de créer un nouveau panier: Liste de produits invalide ");
             }
-            catch (Exception error)
+            else if (!Directory.Exists(chemins.getTicketPath()))
             {
-                Console.WriteLine("Erreur lors de l'ouverture du fichier CSV contenant la liste des tickets: " + error);
+                MessageBox.Show("Impossible de créer un nouveau panier: Chemin d'accès des fichiers de ticket invalide");
             }
-            Produit_LB.Items.AddRange(listeProduit.getListeProduit());
+
+            // Si tout existe, on crée le nouveau panier.
+            else
+            {
+                try
+                {
+                    listeProduit = new ListeProduit(chemins.getCsvFilePath()); // ToDo!
+                    Produit_LB.Items.Clear();
+                    Produit_LB.Items.AddRange(listeProduit.getListeProduit());
+                }
+                catch (Exception error)
+                {
+                    Console.WriteLine("Erreur lors de l'ouverture du fichier CSV contenant la liste des produits: " + error);
+                }
+
+                nosProduits = new Panier();
+                ticketActuel = new Ticket(chemins.getTicketPath());
+            }
         }
         private void Produit_LB_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -66,16 +86,16 @@ namespace HOLE_FOODS
                 // Puis on l'ajoute au panier
                 nosProduits.ajouterPanier(produitAjout);
                 // Avant d'ajouter sa decription au ticket
-                ticketActuel.ajouterLigne(produitAjout.extraireString());
+                ticketActuel.ajouterLigne(produitAjout.extraireString(),chemins.getTicketPath());
             }
         }
 
         private void genererTicketButton_Click(object sender, EventArgs e)
         {
             // Generer Ticket
-            ticketActuel.genererTicket();
+            ticketActuel.genererTicket(chemins.getTicketPath(), nosProduits.getPrixPanier());
             // RAZ interface
-            ticketActuel.razTicketTampon();
+            ticketActuel.razTicketTampon(chemins.getTicketPath());
             Produit_LB.SelectedItem = "";
             Poids_TB.Text = "";
             Total_TB.Text = "";

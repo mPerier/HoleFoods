@@ -47,7 +47,7 @@ namespace HOLE_FOODS
             sw.Close();
             // Le nom du ticket à le path suivant:
             //  C:\Users\"John Doe"\Documents\Ticket N°35 -- 161020 - 141000
-            System.IO.File.Copy(ticketsPath + "tampon.txt", ticketsPath + "Ticket N° " + numTicket + " --  " + DateTime.Now.ToString("ddmmyy - HHMMSS")); razTicketTampon();
+            System.IO.File.Copy(ticketsPath + "tampon.txt", ticketsPath + "Ticket N° " + numTicket + " --  " + DateTime.Now.ToString("ddmmyy - HHMMSS"));
             //Ecrire le total + le reste
             //utiliser le total
 
