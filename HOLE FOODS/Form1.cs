@@ -58,7 +58,7 @@ namespace HOLE_FOODS
                 }
 
                 nosProduits = new Panier();
-                ticketActuel = new Ticket();
+                ticketActuel = new Ticket(chemins.getTicketPath());
             }
         }
         private void Produit_LB_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,16 +86,16 @@ namespace HOLE_FOODS
                 // Puis on l'ajoute au panier
                 nosProduits.ajouterPanier(produitAjout);
                 // Avant d'ajouter sa decription au ticket
-                ticketActuel.ajouterLigne(produitAjout.extraireString());
+                ticketActuel.ajouterLigne(produitAjout.extraireString(),chemins.getTicketPath());
             }
         }
 
         private void genererTicketButton_Click(object sender, EventArgs e)
         {
             // Generer Ticket
-            ticketActuel.genererTicket();
+            ticketActuel.genererTicket(chemins.getTicketPath(), nosProduits.getPrixPanier());
             // RAZ interface
-            ticketActuel.razTicketTampon();
+            ticketActuel.razTicketTampon(chemins.getTicketPath());
             Produit_LB.SelectedItem = "";
             Poids_TB.Text = "";
             Total_TB.Text = "";
