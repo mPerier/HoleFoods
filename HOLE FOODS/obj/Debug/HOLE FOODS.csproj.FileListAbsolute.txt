@@ -25,3 +25,4 @@ D:\documents\Documents\GITPROJECTS\HoleFoods\HoleFoods\HOLE FOODS\obj\Debug\HOLE
 D:\documents\Documents\GITPROJECTS\HoleFoods\HoleFoods\HOLE FOODS\obj\Debug\HOLE FOODS.csproj.CoreCompileInputs.cache
 D:\documents\Documents\GITPROJECTS\HoleFoods\HoleFoods\HOLE FOODS\obj\Debug\HOLE FOODS.exe
 D:\documents\Documents\GITPROJECTS\HoleFoods\HoleFoods\HOLE FOODS\obj\Debug\HOLE FOODS.pdb
+D:\documents\Documents\GITPROJECTS\HoleFoods\HoleFoods\HOLE FOODS\bin\Debug\HOLE FOODS.exe.config

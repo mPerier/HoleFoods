@@ -49,7 +49,11 @@ namespace HOLE_FOODS
                 try
                 {
                     listeProduit = new ListeProduit(chemins.getCsvFilePath()); // ToDo!
-                    Produit_LB.Items.Clear();
+                    
+                    if (Produit_LB.Items.Count != 0)
+                    {
+                        Produit_LB.Items.Clear();
+                    }
                     Produit_LB.Items.AddRange(listeProduit.getListeProduit());
                 }
                 catch (Exception error)
@@ -61,8 +65,10 @@ namespace HOLE_FOODS
                 ticketActuel = new Ticket(chemins.getTicketPath());
             }
         }
+
         private void Produit_LB_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Prix_TB.Text = Convert.ToString(listeProduit.getPrix(Produit_LB.SelectedItem.ToString()));
             calculPrix();
         }
 
@@ -78,24 +84,31 @@ namespace HOLE_FOODS
 
         private void validerLegumeButton_Click(object sender, EventArgs e)
         {
-            if (Produit_LB.SelectedItem != null)
+            double poids;
+            double prix;
+
+            if (Produit_LB.SelectedItem != null && double.TryParse(Poids_TB.Text,out poids) && double.TryParse(Prix_TB.Text,out prix))
             {
                 // On initialise un nouveau produit à partir des éléments de l'interface
                 Produit produitAjout;
-                produitAjout = new Produit(Produit_LB.SelectedItem.ToString(), Convert.ToDouble(Prix_TB.Text), Convert.ToDouble(Poids_TB.Text));
+                produitAjout = new Produit(Produit_LB.SelectedItem.ToString(), prix, poids);
                 // Puis on l'ajoute au panier
                 nosProduits.ajouterPanier(produitAjout);
                 // Avant d'ajouter sa decription au ticket
-                ticketActuel.ajouterLigne(produitAjout.extraireString(),chemins.getTicketPath());
+                ticketActuel.ajouterLigne(produitAjout.extraireString());
+            }
+            else
+            {
+                MessageBox.Show("Tous les champs doivent être remplis");
             }
         }
 
         private void genererTicketButton_Click(object sender, EventArgs e)
         {
             // Generer Ticket
-            ticketActuel.genererTicket(chemins.getTicketPath(), nosProduits.getPrixPanier());
+            ticketActuel.genererTicket(nosProduits.getPrixPanier());
             // RAZ interface
-            ticketActuel.razTicketTampon(chemins.getTicketPath());
+            ticketActuel.razTicketTampon();
             Produit_LB.SelectedItem = "";
             Poids_TB.Text = "";
             Total_TB.Text = "";
@@ -108,7 +121,9 @@ namespace HOLE_FOODS
             DialogResult result = ticketPathRecover_FD.ShowDialog();
             if (result == DialogResult.OK)
             {
+                Properties.Settings.Default["ticketsPath"] = ticketPathRecover_FD.SelectedPath;
                 chemins.setTicketPath(ticketPathRecover_FD.SelectedPath);
+                Properties.Settings.Default.Save();
             }
         }
 

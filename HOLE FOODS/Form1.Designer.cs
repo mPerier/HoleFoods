@@ -53,6 +53,7 @@
             this.Prix_TB.Location = new System.Drawing.Point(233, 107);
             this.Prix_TB.Margin = new System.Windows.Forms.Padding(2);
             this.Prix_TB.Name = "Prix_TB";
+            this.Prix_TB.ReadOnly = true;
             this.Prix_TB.Size = new System.Drawing.Size(72, 20);
             this.Prix_TB.TabIndex = 3;
             this.Prix_TB.TextChanged += new System.EventHandler(this.legumeTextBox_TextChanged);
@@ -87,6 +88,7 @@
             this.Produit_LB.Name = "Produit_LB";
             this.Produit_LB.Size = new System.Drawing.Size(124, 46);
             this.Produit_LB.TabIndex = 6;
+            this.Produit_LB.SelectedIndexChanged += new System.EventHandler(this.Produit_LB_SelectedIndexChanged);
             // 
             // genererTicketButton
             // 
