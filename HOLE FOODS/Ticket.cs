@@ -20,7 +20,7 @@ namespace HOLE_FOODS
         private StreamWriter sw;
         
         // Compteur (statique) qui permet d'obtenir le numero de ticket actuel
-        private static int numTicket;
+        private static int numTicket = 1;
 
         public Ticket()
         {
