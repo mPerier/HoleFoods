@@ -20,7 +20,19 @@ namespace HOLE_FOODS
 
         public void ajouterPanier(Produit produit)
         {
+            this.nosProduits.Add(produit);
+        }
 
+        public double getPrixPanier()
+        {
+            double totalPrix = 0;
+
+            foreach (Produit currentProduit in this.nosProduits)
+            {
+                totalPrix += currentProduit.getPrix();
+            }
+
+            return totalPrix;
         }
     }
 }
