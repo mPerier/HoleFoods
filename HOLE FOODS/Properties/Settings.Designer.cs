@@ -13,7 +13,7 @@ namespace HOLE_FOODS.Properties {
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.7.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
@@ -26,24 +26,24 @@ namespace HOLE_FOODS.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ticketsPath {
+        public string csvFile {
             get {
-                return ((string)(this["ticketsPath"]));
+                return ((string)(this["csvFile"]));
             }
             set {
-                this["ticketsPath"] = value;
+                this["csvFile"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string csvFilePath {
+        public string ticketsPath {
             get {
-                return ((string)(this["csvFilePath"]));
+                return ((string)(this["ticketsPath"]));
             }
             set {
-                this["csvFilePath"] = value;
+                this["ticketsPath"] = value;
             }
         }
     }

@@ -2,10 +2,10 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HOLE_FOODS.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ticketsPath" Type="System.String" Scope="User">
+    <Setting Name="csvFile" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="csvFilePath" Type="System.String" Scope="User">
+    <Setting Name="ticketsPath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

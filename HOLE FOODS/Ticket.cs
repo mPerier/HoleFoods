@@ -26,15 +26,15 @@ namespace HOLE_FOODS
             // On ouvre le fichier tampon à la création du ticket, on incrémente aussi le numéro de ticker.
 
             this.ticketsPath = ticketsPath + "\\"; // On ajoute le double backslash pour être prêt à ajouter le nom de fichier à ce chemin d'accès
-            sw = new StreamWriter(this.ticketsPath + "tampon.txt");
+            this.sw = new StreamWriter(this.ticketsPath + "tampon.txt");
         }
 
         public void ajouterLigne(String ligne)
         {
             // Si le fichier est disponible en écriture, on y écrit la ligne passée en argument.
-            if (sw.BaseStream != null)
+            if (this.sw.BaseStream != null)
             {
-                sw.WriteLine(ligne);
+                this.sw.WriteLine(ligne);
             }
             else
             {
@@ -45,7 +45,7 @@ namespace HOLE_FOODS
         public void genererTicket(double total)
         {
             // La "génération" du ticket se contente de copier le ticket tampon sous un nouveau non.
-            sw.Close();
+            this.sw.Close();
 
             String fileName = "undefined";
             // Le nom du ticket à le path suivant:
@@ -67,9 +67,8 @@ namespace HOLE_FOODS
 
         public void razTicketTampon()
         {
-            // La réinitialisation du ticket tampon écrit un caractère vide sur la totalité du fichier.
-            System.IO.File.WriteAllText(ticketsPath + "tampon.txt", string.Empty);
-
+            // La réinitialisation du ticket tampon se fait en l'effaçant, il sera recréé lors de la création d'un nouveau panier
+            File.Delete(ticketsPath + "tampon.txt");  
         }
     }
 }
