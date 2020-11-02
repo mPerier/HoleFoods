@@ -40,12 +40,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.ticketPath_PB = new System.Windows.Forms.Button();
-            this.ticketPathRecover_FD = new System.Windows.Forms.FolderBrowserDialog();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.CsvFilePath_PB = new System.Windows.Forms.Button();
-            this.csvFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.rstParams_PB = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Prix_TB
@@ -80,13 +77,15 @@
             // 
             // Produit_LB
             // 
-            this.Produit_LB.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Produit_LB.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Produit_LB.FormattingEnabled = true;
-            this.Produit_LB.ItemHeight = 21;
-            this.Produit_LB.Location = new System.Drawing.Point(54, 90);
+            this.Produit_LB.ItemHeight = 19;
+            this.Produit_LB.Items.AddRange(new object[] {
+            "Appuyez sur \"Nouveau panier\""});
+            this.Produit_LB.Location = new System.Drawing.Point(12, 69);
             this.Produit_LB.Margin = new System.Windows.Forms.Padding(2);
             this.Produit_LB.Name = "Produit_LB";
-            this.Produit_LB.Size = new System.Drawing.Size(124, 46);
+            this.Produit_LB.Size = new System.Drawing.Size(199, 118);
             this.Produit_LB.TabIndex = 6;
             this.Produit_LB.SelectedIndexChanged += new System.EventHandler(this.Produit_LB_SelectedIndexChanged);
             // 
@@ -161,22 +160,6 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "€";
             // 
-            // ticketPath_PB
-            // 
-            this.ticketPath_PB.Location = new System.Drawing.Point(11, 216);
-            this.ticketPath_PB.Margin = new System.Windows.Forms.Padding(2);
-            this.ticketPath_PB.Name = "ticketPath_PB";
-            this.ticketPath_PB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ticketPath_PB.Size = new System.Drawing.Size(176, 29);
-            this.ticketPath_PB.TabIndex = 19;
-            this.ticketPath_PB.Text = "Choisir dossier sauvegarde ticket";
-            this.ticketPath_PB.UseVisualStyleBackColor = true;
-            this.ticketPath_PB.Click += new System.EventHandler(this.ticketPath_PB_Click);
-            // 
-            // ticketPathRecover_FD
-            // 
-            this.ticketPathRecover_FD.RootFolder = System.Environment.SpecialFolder.MyComputer;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -196,32 +179,25 @@
             this.label6.TabIndex = 23;
             this.label6.Text = "Prix total";
             // 
-            // CsvFilePath_PB
+            // rstParams_PB
             // 
-            this.CsvFilePath_PB.Location = new System.Drawing.Point(11, 184);
-            this.CsvFilePath_PB.Margin = new System.Windows.Forms.Padding(2);
-            this.CsvFilePath_PB.Name = "CsvFilePath_PB";
-            this.CsvFilePath_PB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.CsvFilePath_PB.Size = new System.Drawing.Size(176, 28);
-            this.CsvFilePath_PB.TabIndex = 24;
-            this.CsvFilePath_PB.Text = "Choisir liste des produits";
-            this.CsvFilePath_PB.UseVisualStyleBackColor = true;
-            this.CsvFilePath_PB.Click += new System.EventHandler(this.CsvFilePath_PB_Click);
-            // 
-            // csvFileDialog
-            // 
-            this.csvFileDialog.Filter = "CSV Files (*.csv)|*.csv";
-            this.csvFileDialog.Title = "Sélectionnez la liste des produits";
+            this.rstParams_PB.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.rstParams_PB.Location = new System.Drawing.Point(12, 222);
+            this.rstParams_PB.Name = "rstParams_PB";
+            this.rstParams_PB.Size = new System.Drawing.Size(217, 22);
+            this.rstParams_PB.TabIndex = 24;
+            this.rstParams_PB.Text = "Réinitialiser les paramètres de l\'application";
+            this.rstParams_PB.UseVisualStyleBackColor = true;
+            this.rstParams_PB.Click += new System.EventHandler(this.rstParams_PB_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 256);
-            this.Controls.Add(this.CsvFilePath_PB);
+            this.Controls.Add(this.rstParams_PB);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.ticketPath_PB);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -254,12 +230,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button ticketPath_PB;
-        private System.Windows.Forms.FolderBrowserDialog ticketPathRecover_FD;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button CsvFilePath_PB;
-        private System.Windows.Forms.OpenFileDialog csvFileDialog;
+        private System.Windows.Forms.Button rstParams_PB;
     }
 }
 
