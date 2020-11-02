@@ -1,6 +1,13 @@
 ﻿using System;
-using System.Configuration;
 using System.IO;
+
+/**
+ *
+ * ------------- MODEL ----------------
+ *
+ * La classe Chemins gère encapsule les opérations liées à l'obtention des chemins d'accès des fichiers utilisés par l'application
+ * 
+ */
 
 namespace HOLE_FOODS
 {
@@ -11,12 +18,14 @@ namespace HOLE_FOODS
 
         public Chemins()
         {
+            // Lors de l'instanciation de Chemins, on s'assure de la présence de tous les chemins d'accès
             checkPaths();
         }
 
         public void checkPaths()
         {
-            // Vérifie que les chemins d'accès aux fichiers sont valides
+            // Vérifie que tous les chemins d'accès sont disponibles et que les fichiers existent, sinon on demandera à l'utilisateur de les renseigner
+
             // ticketsPath
             if (Properties.Settings.Default.ticketsPath == null || !Directory.Exists(Properties.Settings.Default.ticketsPath.ToString()))
             {
@@ -37,6 +46,7 @@ namespace HOLE_FOODS
 
         public void resetSettings()
         {
+            // On demande confirmation à l'utilisateur avant de réinitialiser
             if (FenetresDialogue.userVerification("Êtes vous sûr de vouloir réinitialiser les paramètres de l'application?"))
             {
                 Properties.Settings.Default.ticketsPath = "";
@@ -45,11 +55,7 @@ namespace HOLE_FOODS
             }
         }
 
-        public void setTicketPath(String ticketPath)
-        {
-            this.ticketsPath = ticketPath;
-        }
-
+        // Les getters utilisés pour extraire les chemins 
         public String getTicketPath()
         {
             return this.ticketsPath;
@@ -58,11 +64,6 @@ namespace HOLE_FOODS
         public String getCsvFilePath()
         {
             return this.csvFile;
-        }
-
-        public void setCsvFilePath(string csvFilePath)
-        {
-            this.csvFile = csvFilePath;
         }
     }
 }

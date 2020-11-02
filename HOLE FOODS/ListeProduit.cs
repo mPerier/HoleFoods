@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Xml;
 
-/*
-// La classe ListeProduit contient un dicitonnaire représentant la totalité des produits que l'utilisateur peut sélectionner, ainsi que leur prix unitaire
+/**
+ * 
+ * ------------- MODEL ----------------
+ * 
+ * La classe ListeProduit contient un dicitonnaire représentant la totalité des produits que l'utilisateur peut sélectionner, ainsi que leur prix unitaire
 */
 
 namespace HOLE_FOODS
@@ -92,7 +91,7 @@ namespace HOLE_FOODS
         public double getPrix(String nomProduit)
         {
             double outValue;
-             dicProduits.TryGetValue(nomProduit, out outValue);
+            dicProduits.TryGetValue(nomProduit, out outValue);
             return outValue;
 
 

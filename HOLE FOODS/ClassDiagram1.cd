@@ -4,15 +4,15 @@
     <Position X="3.714" Y="8.758" Height="0.465" Width="0.7" />
   </Comment>
   <Comment CommentText="VIEW">
-    <Position X="10.164" Y="9.444" Height="0.465" Width="0.7" />
+    <Position X="10.338" Y="9.064" Height="0.465" Width="0.7" />
   </Comment>
   <Comment CommentText="CONTROLLER">
     <Position X="14.959" Y="8.802" Height="0.465" Width="1.017" />
   </Comment>
   <Class Name="HOLE_FOODS.Form1">
-    <Position X="9.75" Y="0.5" Width="1.5" />
+    <Position X="9" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEEAAAAAACgAABAAARCCggACAAEDEiAAAhAAECAAAAA=</HashCode>
+      <HashCode>AEEAAAAAACgAABAAARCCggACAAFDEigAAhAAECAAAAg=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -30,7 +30,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="HOLE_FOODS.Properties.Settings">
-    <Position X="14.75" Y="3.25" Width="1.5" />
+    <Position X="14.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAABQAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
@@ -43,14 +43,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="HOLE_FOODS.ListeProduit">
-    <Position X="4.25" Y="6.5" Width="4" />
+    <Position X="4" Y="3.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAhAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ListeProduit.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HOLE_FOODS.Ticket">
-    <Position X="4.25" Y="3.5" Width="2.5" />
+    <Position X="1" Y="3.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAQAAAAAQAAAAAAIABAAEAAAAAIAAAAAA=</HashCode>
       <FileName>Ticket.cs</FileName>
@@ -72,7 +72,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="HOLE_FOODS.FenetresDialogue">
-    <Position X="9.75" Y="7.75" Width="1.5" />
+    <Position X="10.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAAAAAAAAAAgAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FenetresDialogue.cs</FileName>

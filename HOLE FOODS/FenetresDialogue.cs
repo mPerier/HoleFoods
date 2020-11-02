@@ -1,6 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
 
+/**
+ *
+ * ------------- VIEW ----------------
+ * 
+ * Gère l'utilisation de fenêtres "popup", nottament d'explorateurs de fichiers pour en extraire des chemins d'accès.
+ */
+
 namespace HOLE_FOODS
 {
     public static class FenetresDialogue
@@ -17,7 +24,7 @@ namespace HOLE_FOODS
             DialogResult result = dirEntry.ShowDialog();
             if (result == DialogResult.OK)
             {
-                outputPath = dirEntry.SelectedPath;
+                outputPath = dirEntry.SelectedPath + "\\"; //FolderBrowserDialog n'ajoute pas le dernier "\" de séparation au chemin d'accès
             }
             return outputPath;
         }

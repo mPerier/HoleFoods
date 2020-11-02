@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
 
 /*
-* La classe Ticker contient toutes les méthods liées à l'écriture dans les fichiers textes qui seront utilisés comme des tickets.
+ * 
+ * ------------- MODEL ----------------
+ * 
+* La classe Ticket contient toutes les méthods liées à l'écriture dans les fichiers textes qui seront utilisés comme des tickets.
 */
 
 
@@ -25,8 +26,9 @@ namespace HOLE_FOODS
         {
             // On ouvre le fichier tampon à la création du ticket, on incrémente aussi le numéro de ticker.
 
-            this.ticketsPath = ticketsPath + "\\"; // On ajoute le double backslash pour être prêt à ajouter le nom de fichier à ce chemin d'accès
+            this.ticketsPath = ticketsPath;
             this.sw = new StreamWriter(this.ticketsPath + "tampon.txt");
+            sw.Write(getBeginOfTicket());
         }
 
         public void ajouterLigne(String ligne)
@@ -38,14 +40,16 @@ namespace HOLE_FOODS
             }
             else
             {
-                Console.WriteLine("[TickeT:ERROR] Fichier non ouvert " + this.ticketsPath + "tampon.txt");
+                Console.WriteLine("Fichier non ouvert " + this.ticketsPath + "tampon.txt");
             }
         }
 
-        public void genererTicket(double total)
+        public String genererTicket(double total)
         {
-            // La "génération" du ticket se contente de copier le ticket tampon sous un nouveau non.
-            this.sw.Close();
+            // La "génération" du ticket se contente de copier le ticket tampon sous un nouveau nom.
+
+            sw.Write(getEndOfTicket(total));
+            this.sw.Close(); // On libère le buffer du ticket tampon
 
             String fileName = "undefined";
             // Le nom du ticket à le path suivant:
@@ -60,8 +64,8 @@ namespace HOLE_FOODS
             {
                 Console.WriteLine("Impossible d'écrire sur le fichier " +  fileName + "Erreur : " + e);
             }
-            //Ecrire le total + le reste
-            //utiliser le total
+
+            return fileName;
 
         }
 
@@ -69,6 +73,37 @@ namespace HOLE_FOODS
         {
             // La réinitialisation du ticket tampon se fait en l'effaçant, il sera recréé lors de la création d'un nouveau panier
             File.Delete(ticketsPath + "tampon.txt");  
+        }
+
+        private String getBeginOfTicket()
+        {
+            // Pour générer le début du ticket, on utilise l'heure de DateTime avec le IFormatSpecifier adapté
+            return  "--------------------------------\n"+
+                    "Primeur de la côte\n"+
+                    "Avenue de beaurivage\n"+
+                    "64200 Biarritz\n"+
+                    "\n"+
+                    "le "+ DateTime.Now.ToString("dd/MM/yyyy") +"\n" +  // JJ / MM / AAAA
+                    "à "+ DateTime.Now.ToString("HH:mm") +"\n" +        // HH / mm
+                    "\n";
+        }
+
+        private String getEndOfTicket(double total)
+        {
+            // Pour générer la fin du ticket on à besoin du prix total et de sa TVA au bon format
+            const double TVA_RATIO = 0.2;
+            const String I_FORMAT_SPECIFIER = "N"; // Le "P" correspond à la notation "Numeric" avec deux décimales
+
+            const String REGIONAL_SPECIFIER = "fr-CA"; // Préciser le format Français permet de supprimer le "." entre les milliers
+            CultureInfo culture = CultureInfo.CreateSpecificCulture(REGIONAL_SPECIFIER);
+
+            return "\n" +
+                    "TOTAL TTC : " + total.ToString(I_FORMAT_SPECIFIER) + " €\n" +
+                    "TVA: " + (total * TVA_RATIO).ToString(I_FORMAT_SPECIFIER,culture) + " €\n" +
+                    "\n" +
+                    "Merci de votre visite et...\n" +
+                    "... Gardez la pêche!\n" +
+                    "---------------------------------\n";
         }
     }
 }

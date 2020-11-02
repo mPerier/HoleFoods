@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using System.Collections.Generic;
 /**
-* La classe Panier à pour objectif principal de stocker les produits et les quantités sélectionnées. 
+ *
+ * ------------- MODEL ----------------
+ * 
+ * La classe Panier à pour objectif principal de stocker les produits et les quantités sélectionnées. 
 */
 
 namespace HOLE_FOODS

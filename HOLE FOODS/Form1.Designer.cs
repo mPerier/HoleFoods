@@ -43,6 +43,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.rstParams_PB = new System.Windows.Forms.Button();
+            this.ModifyListProducts_PB = new System.Windows.Forms.Button();
+            this.viewTicket_CB = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Prix_TB
@@ -81,20 +83,27 @@
             this.Produit_LB.FormattingEnabled = true;
             this.Produit_LB.ItemHeight = 19;
             this.Produit_LB.Items.AddRange(new object[] {
-            "Appuyez sur \"Nouveau panier\""});
+            "Appuyez sur \"Nouveau panier\"",
+            "pour commencer.",
+            "",
+            "Pour chaque produit,entrez le",
+            "poids, puis cliquez sur \"Valider\".",
+            "",
+            "Une fois le panier terminé,",
+            "cliquez sur \"Editer ticket\""});
             this.Produit_LB.Location = new System.Drawing.Point(12, 69);
             this.Produit_LB.Margin = new System.Windows.Forms.Padding(2);
             this.Produit_LB.Name = "Produit_LB";
-            this.Produit_LB.Size = new System.Drawing.Size(199, 118);
+            this.Produit_LB.Size = new System.Drawing.Size(206, 156);
             this.Produit_LB.TabIndex = 6;
             this.Produit_LB.SelectedIndexChanged += new System.EventHandler(this.Produit_LB_SelectedIndexChanged);
             // 
             // genererTicketButton
             // 
-            this.genererTicketButton.Location = new System.Drawing.Point(441, 149);
+            this.genererTicketButton.Location = new System.Drawing.Point(402, 149);
             this.genererTicketButton.Margin = new System.Windows.Forms.Padding(2);
             this.genererTicketButton.Name = "genererTicketButton";
-            this.genererTicketButton.Size = new System.Drawing.Size(74, 42);
+            this.genererTicketButton.Size = new System.Drawing.Size(113, 42);
             this.genererTicketButton.TabIndex = 7;
             this.genererTicketButton.Text = "Editer ticket";
             this.genererTicketButton.UseVisualStyleBackColor = true;
@@ -102,7 +111,7 @@
             // 
             // Total_TB
             // 
-            this.Total_TB.Location = new System.Drawing.Point(339, 161);
+            this.Total_TB.Location = new System.Drawing.Point(290, 161);
             this.Total_TB.Margin = new System.Windows.Forms.Padding(2);
             this.Total_TB.Name = "Total_TB";
             this.Total_TB.ReadOnly = true;
@@ -123,12 +132,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(254, 90);
+            this.label1.Location = new System.Drawing.Point(247, 90);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Prix";
+            this.label1.Text = "Prix / kg";
             // 
             // label2
             // 
@@ -136,9 +145,9 @@
             this.label2.Location = new System.Drawing.Point(356, 90);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 13);
+            this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 16;
-            this.label2.Text = "Poids";
+            this.label2.Text = "Masse";
             // 
             // label3
             // 
@@ -153,7 +162,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(415, 163);
+            this.label4.Location = new System.Drawing.Point(366, 163);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 13);
@@ -173,28 +182,51 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(287, 164);
+            this.label6.Location = new System.Drawing.Point(230, 164);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.Size = new System.Drawing.Size(59, 13);
             this.label6.TabIndex = 23;
-            this.label6.Text = "Prix total";
+            this.label6.Text = "Prix produit";
             // 
             // rstParams_PB
             // 
             this.rstParams_PB.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.rstParams_PB.Location = new System.Drawing.Point(12, 222);
+            this.rstParams_PB.Location = new System.Drawing.Point(310, 258);
             this.rstParams_PB.Name = "rstParams_PB";
-            this.rstParams_PB.Size = new System.Drawing.Size(217, 22);
+            this.rstParams_PB.Size = new System.Drawing.Size(145, 35);
             this.rstParams_PB.TabIndex = 24;
             this.rstParams_PB.Text = "Réinitialiser les paramètres de l\'application";
             this.rstParams_PB.UseVisualStyleBackColor = true;
             this.rstParams_PB.Click += new System.EventHandler(this.rstParams_PB_Click);
             // 
+            // ModifyListProducts_PB
+            // 
+            this.ModifyListProducts_PB.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ModifyListProducts_PB.Location = new System.Drawing.Point(102, 258);
+            this.ModifyListProducts_PB.Name = "ModifyListProducts_PB";
+            this.ModifyListProducts_PB.Size = new System.Drawing.Size(135, 35);
+            this.ModifyListProducts_PB.TabIndex = 25;
+            this.ModifyListProducts_PB.Text = "Modifier la liste de produits";
+            this.ModifyListProducts_PB.UseVisualStyleBackColor = true;
+            this.ModifyListProducts_PB.Click += new System.EventHandler(this.ModifyListProducts_PB_Click);
+            // 
+            // viewTicket_CB
+            // 
+            this.viewTicket_CB.AutoSize = true;
+            this.viewTicket_CB.Location = new System.Drawing.Point(260, 198);
+            this.viewTicket_CB.Name = "viewTicket_CB";
+            this.viewTicket_CB.Size = new System.Drawing.Size(102, 17);
+            this.viewTicket_CB.TabIndex = 26;
+            this.viewTicket_CB.Text = "Afficher le ticket";
+            this.viewTicket_CB.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 256);
+            this.ClientSize = new System.Drawing.Size(526, 310);
+            this.Controls.Add(this.viewTicket_CB);
+            this.Controls.Add(this.ModifyListProducts_PB);
             this.Controls.Add(this.rstParams_PB);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -233,6 +265,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button rstParams_PB;
+        private System.Windows.Forms.Button ModifyListProducts_PB;
+        private System.Windows.Forms.CheckBox viewTicket_CB;
     }
 }
 

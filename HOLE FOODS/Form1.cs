@@ -1,17 +1,10 @@
-﻿using HOLE_FOODS;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 /*
 *
-* Contrôleur du programme:
+* ------------- CONTROLLER ----------------
 *
 */
 
@@ -19,6 +12,7 @@ namespace HOLE_FOODS
 {
     public partial class Form1 : Form
     {
+        // Les objets propres à l'application
         Panier nosProduits;
         Ticket ticketActuel;
         ListeProduit listeProduit;
@@ -28,7 +22,7 @@ namespace HOLE_FOODS
         public Form1()
         {
             InitializeComponent();
-            chemins = new Chemins();
+            chemins = new Chemins(); // On vérifie que les chemins d'accès en C:\Users\userName\AppData\Local sont corrects, ou alors on les importe
         }
 
         private void NVPanier_PB_Click(object sender, EventArgs e)
@@ -38,6 +32,7 @@ namespace HOLE_FOODS
 
         private void Produit_LB_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Si la liste de produits est remplie, on met à jour le prix du produit sélectionné
             if (listeProduit != null)
             {
                 Prix_TB.Text = Convert.ToString(listeProduit.getPrix(Produit_LB.SelectedItem.ToString()));
@@ -60,28 +55,34 @@ namespace HOLE_FOODS
             double poids;
             double prix;
 
-            if (Produit_LB.SelectedItem != null && double.TryParse(Poids_TB.Text,out poids) && double.TryParse(Prix_TB.Text,out prix))
+            // Si tous les champs sont remplis et au bon format
+            if (Produit_LB.SelectedItem != null && double.TryParse(Poids_TB.Text,out poids) && double.TryParse(Total_TB.Text,out prix))
             {
-                // On initialise un nouveau produit à partir des éléments de l'interface
-                Produit produitAjout;
-                produitAjout = new Produit(Produit_LB.SelectedItem.ToString(), prix, poids);
-                // Puis on l'ajoute au panier
-                nosProduits.ajouterPanier(produitAjout);
-                // Avant d'ajouter sa decription au ticket
-                ticketActuel.ajouterLigne(produitAjout.extraireString());
+                
+                Produit produitAjout = new Produit(Produit_LB.SelectedItem.ToString(), prix, poids); // On initialise un nouveau produit à partir des éléments de l'interface
+                nosProduits.ajouterPanier(produitAjout);                                             // Puis on l'ajoute au panier
+                ticketActuel.ajouterLigne(produitAjout.extraireString());                            // Avant d'ajouter sa decription au ticket
             }
             else
             {
-                MessageBox.Show("Tous les champs doivent être remplis");
+                MessageBox.Show("Tous les champs doivent être remplis et au bon format!");
             }
         }
 
         private void genererTicketButton_Click(object sender, EventArgs e)
         {
-            // Generer Ticket
-            ticketActuel.genererTicket(nosProduits.getPrixPanier());
+            String generatedTicketPath;
 
-            // RAZ interface
+            // On génère le nouveau ticket, et on en extrait le nom
+            generatedTicketPath = ticketActuel.genererTicket(nosProduits.getPrixPanier());
+
+            // On l'affiche ou non
+            if (viewTicket_CB.Checked == true)
+            {
+                System.Diagnostics.Process.Start(generatedTicketPath);
+            }
+
+            // Enfin, on réinitialise l'interface avant de créer un nouveau panier
             ticketActuel.razTicketTampon();
             nvPanier();
         }
@@ -108,6 +109,7 @@ namespace HOLE_FOODS
             // Si tout existe, on crée le nouveau panier.
             else
             {
+                // On commence par mettre à jour la liste de produits et le ListBox à partir du fichier CSV
                 try
                 {
 
@@ -124,6 +126,7 @@ namespace HOLE_FOODS
                     Console.WriteLine("Erreur lors de l'ouverture du fichier CSV contenant la liste des produits: " + error);
                 }
 
+                // Puis on instancie un nouveau panier et un nouveau ticket, les anciens seront détruits par le garbage collector
                 nosProduits = new Panier();
                 ticketActuel = new Ticket(chemins.getTicketPath());
             }
@@ -154,6 +157,12 @@ namespace HOLE_FOODS
             // On efface les paramètres de l'application, puis on la redémarre pour éviter les effets de bord.
             chemins.resetSettings();
             Application.Restart();
+        }
+
+        private void ModifyListProducts_PB_Click(object sender, EventArgs e)
+        {
+            // System.Diagnostics.Process permet entre autres de déterminer grâce à l'OS quelle application utiliser, puis d'ouvrir le fichier au chemin donné en argument.
+            System.Diagnostics.Process.Start(chemins.getCsvFilePath());
         }
     }
 }
