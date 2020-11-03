@@ -20,7 +20,7 @@ namespace HOLE_FOODS
         private StreamWriter sw;
 
         // Compteur (statique) qui permet d'obtenir le numero de ticket actuel
-        private static int numTicket = 0;
+        private int numTicket;
 
         public Ticket(String ticketsPath)
         {
@@ -48,7 +48,14 @@ namespace HOLE_FOODS
         {
             // La "génération" du ticket se contente de copier le ticket tampon sous un nouveau nom.
 
-            sw.Write(getEndOfTicket(total));
+            // Vient chercher le numéro de ticket dans les fichier windows puis l'incrémente 
+            if(!int.TryParse(Properties.Settings.Default.numTicket.ToString(), out numTicket))
+            {
+                numTicket = 0;
+            }
+            Properties.Settings.Default.numTicket = (numTicket+1).ToString();
+             
+           sw.Write(getEndOfTicket(total));
             this.sw.Close(); // On libère le buffer du ticket tampon
 
             String fileName = "undefined";
@@ -58,7 +65,6 @@ namespace HOLE_FOODS
             {
                 fileName =  this.ticketsPath + "Ticket N" + numTicket + " --  " + DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss") + ".txt";
                 System.IO.File.Copy(ticketsPath + "tampon.txt", fileName);
-                numTicket++;
             }
             catch (Exception e)
             {

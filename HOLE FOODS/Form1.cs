@@ -162,6 +162,7 @@ namespace HOLE_FOODS
         private void rstParams_PB_Click(object sender, EventArgs e)
         {
             // On efface les paramètres de l'application, puis on la redémarre pour éviter les effets de bord.
+            Properties.Settings.Default.numTicket = "";
             ticketActuel.razTicketTampon();
             chemins.resetSettings();
             Application.Restart();

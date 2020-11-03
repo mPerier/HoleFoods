@@ -15,6 +15,7 @@ namespace HOLE_FOODS
     {
         private String ticketsPath;
         private String csvFile;
+        private int NumTicket;
 
         public Chemins()
         {
