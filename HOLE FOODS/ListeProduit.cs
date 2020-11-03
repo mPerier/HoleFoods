@@ -69,7 +69,7 @@ namespace HOLE_FOODS
 
                 lineIterator++;
             }
-                
+            sr.Close();
         }
 
         public String[] getListeProduit()

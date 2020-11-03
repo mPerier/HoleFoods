@@ -46,6 +46,7 @@ namespace HOLE_FOODS
 
         public void resetSettings()
         {
+
             // On demande confirmation à l'utilisateur avant de réinitialiser
             if (FenetresDialogue.userVerification("Êtes vous sûr de vouloir réinitialiser les paramètres de l'application?"))
             {

@@ -72,6 +72,7 @@ namespace HOLE_FOODS
         public void razTicketTampon()
         {
             // La réinitialisation du ticket tampon se fait en l'effaçant, il sera recréé lors de la création d'un nouveau panier
+            sw.Close();
             File.Delete(ticketsPath + "tampon.txt");  
         }
 
