@@ -88,8 +88,14 @@ namespace HOLE_FOODS
         }
 
         private void nvPanier()
-        {   
+        {
             // Cette fonction est appelée dans le clic de "nouveau Panier" ainsi que lors de la création d'un nouveau ticket!
+
+            // Avant tout, on s'assure de fermer le ticket tampon pour éviter les effets de bord type "impossible d'ouvrir le fichier"
+            if (ticketActuel != null)
+            {
+                ticketActuel.razTicketTampon();
+            }
 
             // Avant de créer un nouveau panier, on vérifie que les chemins d'accès pour le dossier des tickets et le CSV des produits existe.
             chemins.checkPaths();
