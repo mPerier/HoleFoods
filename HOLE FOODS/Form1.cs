@@ -67,6 +67,7 @@ namespace HOLE_FOODS
             {
                 MessageBox.Show("Tous les champs doivent être remplis et au bon format!");
             }
+            TotalPanier_TB.Text = nosProduits.getPrixPanier().ToString();
         }
 
         private void genererTicketButton_Click(object sender, EventArgs e)
