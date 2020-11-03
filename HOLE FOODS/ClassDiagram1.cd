@@ -1,58 +1,82 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="MODEL">
+    <Position X="3.714" Y="8.758" Height="0.465" Width="0.7" />
+  </Comment>
+  <Comment CommentText="VIEW">
+    <Position X="10.338" Y="9.064" Height="0.465" Width="0.7" />
+  </Comment>
+  <Comment CommentText="CONTROLLER">
+    <Position X="14.959" Y="8.802" Height="0.465" Width="1.017" />
+  </Comment>
   <Class Name="HOLE_FOODS.Form1">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="9" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AGEAAAQAACgAABAAARCDiAASQAECEgAAAAAAACAAAAA=</HashCode>
+      <HashCode>AEEAAAAAACgAABAAARCCggACAAFDEigAAhAAECAAAAg=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HOLE_FOODS.Program">
-    <Position X="2.25" Y="0.5" Width="4" />
+    <Position X="14.75" Y="7.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HOLE_FOODS.Properties.Resources" Collapsed="true">
-    <Position X="15.5" Y="2.25" Width="1.5" />
+    <Position X="14.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="HOLE_FOODS.Properties.Settings">
-    <Position X="15.5" Y="0.5" Width="1.5" />
+    <Position X="14.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAABQAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="HOLE_FOODS.Produit">
-    <Position X="7.75" Y="0.5" Width="4" />
+    <Position X="1" Y="0.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAACAAAAAAAAAAAAAAAAAAAIAAAAEAUAA=</HashCode>
+      <HashCode>AAAAABAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAUAA=</HashCode>
       <FileName>Produit.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HOLE_FOODS.ListeProduit">
-    <Position X="7.75" Y="4" Width="4" />
+    <Position X="4" Y="3.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAhAAAAIAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAhAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ListeProduit.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HOLE_FOODS.Ticket">
-    <Position X="5" Y="4" Width="2.5" />
+    <Position X="1" Y="3.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAQIAAAAAAgAAAIAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAQAAAAAQAAAAAAIABAAEAAAAAIAAAAAA=</HashCode>
       <FileName>Ticket.cs</FileName>
       <NewMemberFileName>Panier.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HOLE_FOODS.Panier">
-    <Position X="2.25" Y="4" Width="2.5" />
+    <Position X="4.25" Y="0.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAQAAAAAAAAAA=</HashCode>
+      <HashCode>AACAAAAAAAAAAAAAAAAAgAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Panier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HOLE_FOODS.Chemins">
+    <Position X="14.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AEAABAEAEAABQAAAAAAAAAAAAAAAgAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Chemins.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HOLE_FOODS.FenetresDialogue">
+    <Position X="10.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAgAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FenetresDialogue.cs</FileName>
+      <NewMemberFileName>fenetresDialogue.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
