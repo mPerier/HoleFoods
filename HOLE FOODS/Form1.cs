@@ -16,13 +16,11 @@ namespace HOLE_FOODS
         Panier nosProduits;
         Ticket ticketActuel;
         ListeProduit listeProduit;
-        Chemins chemins;
-
 
         public Form1()
         {
             InitializeComponent();
-            chemins = new Chemins(); // On vérifie que les chemins d'accès en C:\Users\userName\AppData\Local sont corrects, ou alors on les importe
+            AppSettings.checkPaths();
         }
 
         private void NVPanier_PB_Click(object sender, EventArgs e)
@@ -99,17 +97,17 @@ namespace HOLE_FOODS
             }
 
             // Avant de créer un nouveau panier, on vérifie que les chemins d'accès pour le dossier des tickets et le CSV des produits existe.
-            chemins.checkPaths();
+            AppSettings.checkPaths();
 
             Produit_LB.SelectedItem = "";
             Poids_TB.Text = "";
             Total_TB.Text = "";
 
-            if (!File.Exists(chemins.getCsvFilePath()))
+            if (!File.Exists(AppSettings.getCsvFilePath()))
             {
                 MessageBox.Show("Impossible de créer un nouveau panier: Liste de produits invalide ");
             }
-            else if (!Directory.Exists(chemins.getTicketPath()))
+            else if (!Directory.Exists(AppSettings.getTicketPath()))
             {
                 MessageBox.Show("Impossible de créer un nouveau panier: Chemin d'accès des fichiers de ticket invalide");
             }
@@ -120,7 +118,7 @@ namespace HOLE_FOODS
                 try
                 {
 
-                    listeProduit = new ListeProduit(chemins.getCsvFilePath()); // ToDo!
+                    listeProduit = new ListeProduit(AppSettings.getCsvFilePath()); // ToDo!
 
                     if (Produit_LB.Items.Count != 0)
                     {
@@ -135,7 +133,7 @@ namespace HOLE_FOODS
 
                 // Puis on instancie un nouveau panier et un nouveau ticket, les anciens seront détruits par le garbage collector
                 nosProduits = new Panier();
-                ticketActuel = new Ticket(chemins.getTicketPath());
+                ticketActuel = new Ticket(AppSettings.getTicketPath());
             }
         }
 
@@ -164,14 +162,14 @@ namespace HOLE_FOODS
             // On efface les paramètres de l'application, puis on la redémarre pour éviter les effets de bord.
             Properties.Settings.Default.numTicket = "";
             ticketActuel.razTicketTampon();
-            chemins.resetSettings();
+            AppSettings.resetSettings();
             Application.Restart();
         }
 
         private void ModifyListProducts_PB_Click(object sender, EventArgs e)
         {
             // System.Diagnostics.Process permet entre autres de déterminer grâce à l'OS quelle application utiliser, puis d'ouvrir le fichier au chemin donné en argument.
-            System.Diagnostics.Process.Start(chemins.getCsvFilePath());
+            System.Diagnostics.Process.Start(AppSettings.getCsvFilePath());
         }
     }
 }

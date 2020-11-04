@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.IO;
 
@@ -47,14 +48,11 @@ namespace HOLE_FOODS
         public String genererTicket(double total)
         {
             // La "génération" du ticket se contente de copier le ticket tampon sous un nouveau nom.
+            
+            // On récupère le numéro de ticket, et on incrémente sa valeur stockée dans les variables d'environnement
+            numTicket = AppSettings.getNumTicket();
+            AppSettings.setNumTicket(numTicket + 1);
 
-            // Vient chercher le numéro de ticket dans les fichier windows puis l'incrémente 
-            if(!int.TryParse(Properties.Settings.Default.numTicket.ToString(), out numTicket))
-            {
-                numTicket = 0;
-            }
-            Properties.Settings.Default.numTicket = (numTicket+1).ToString();
-             
            sw.Write(getEndOfTicket(total));
             this.sw.Close(); // On libère le buffer du ticket tampon
 
