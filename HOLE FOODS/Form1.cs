@@ -60,12 +60,12 @@ namespace HOLE_FOODS
                 Produit produitAjout = new Produit(Produit_LB.SelectedItem.ToString(), prix, poids); // On initialise un nouveau produit à partir des éléments de l'interface
                 nosProduits.ajouterPanier(produitAjout);                                             // Puis on l'ajoute au panier
                 ticketActuel.ajouterLigne(produitAjout.extraireString());                            // Avant d'ajouter sa decription au ticket
+                TotalPanier_TB.Text = nosProduits.getPrixPanier().ToString();                        // Et de mettre à jour le total panier
             }
             else
             {
-                MessageBox.Show("Tous les champs doivent être remplis et au bon format!");
+                FenetresDialogue.userInformation("Tous les champs doivent être remplis et au bon format!");
             }
-            TotalPanier_TB.Text = nosProduits.getPrixPanier().ToString();
         }
 
         private void genererTicketButton_Click(object sender, EventArgs e)
@@ -105,11 +105,11 @@ namespace HOLE_FOODS
 
             if (!File.Exists(AppSettings.getCsvFilePath()))
             {
-                MessageBox.Show("Impossible de créer un nouveau panier: Liste de produits invalide ");
+                FenetresDialogue.userInformation("Impossible de créer un nouveau panier: Liste de produits invalide ");
             }
             else if (!Directory.Exists(AppSettings.getTicketPath()))
             {
-                MessageBox.Show("Impossible de créer un nouveau panier: Chemin d'accès des fichiers de ticket invalide");
+                FenetresDialogue.userInformation("Impossible de créer un nouveau panier: Chemin d'accès des fichiers de ticket invalide");
             }
             // Si tout existe, on crée le nouveau panier.
             else
