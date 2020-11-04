@@ -58,11 +58,11 @@ namespace HOLE_FOODS
                 {
                     if (dicProduits.Count < 1)
                     {
-                        MessageBox.Show("[ERREUR] Impossible d'importer les données du fichier CSV");
+                        FenetresDialogue.userInformation("[ERREUR] Impossible d'importer les données du fichier CSV");
                     }
                     else
                     {
-                        MessageBox.Show("[ALERTE] Erreurs lors de l'import de la liste des produits");
+                        FenetresDialogue.userInformation("[ALERTE] Erreurs lors de l'import de la liste des produits");
                     }
                 }
 

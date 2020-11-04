@@ -46,5 +46,17 @@ namespace HOLE_FOODS.Properties {
                 this["ticketsPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string numTicket {
+            get {
+                return ((string)(this["numTicket"]));
+            }
+            set {
+                this["numTicket"] = value;
+            }
+        }
     }
 }

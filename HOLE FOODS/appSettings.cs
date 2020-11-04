@@ -11,18 +11,13 @@ using System.IO;
 
 namespace HOLE_FOODS
 {
-    public class Chemins
+    public static class AppSettings
     {
-        private String ticketsPath;
-        private String csvFile;
+        private static String ticketsPath;
+        private static String csvFile;
+        private static int numTicket;
 
-        public Chemins()
-        {
-            // Lors de l'instanciation de Chemins, on s'assure de la présence de tous les chemins d'accès
-            checkPaths();
-        }
-
-        public void checkPaths()
+        public static void checkPaths()
         {
             // Vérifie que tous les chemins d'accès sont disponibles et que les fichiers existent, sinon on demandera à l'utilisateur de les renseigner
 
@@ -44,7 +39,7 @@ namespace HOLE_FOODS
             Properties.Settings.Default.Save();
         }
 
-        public void resetSettings()
+        public static void resetSettings()
         {
 
             // On demande confirmation à l'utilisateur avant de réinitialiser
@@ -57,14 +52,32 @@ namespace HOLE_FOODS
         }
 
         // Les getters utilisés pour extraire les chemins 
-        public String getTicketPath()
+        public static String getTicketPath()
         {
-            return this.ticketsPath;
+            return ticketsPath;
         }
 
-        public String getCsvFilePath()
+        public static String getCsvFilePath()
         {
-            return this.csvFile;
+            return csvFile;
+        }
+
+        public static void setNumTicket(int newNumTicket)
+        {
+            numTicket = newNumTicket;
+            Properties.Settings.Default.numTicket = newNumTicket.ToString();
+        }
+
+        public static int getNumTicket()
+        {
+            // On essaie de retrouver le numéro de ticket, en cas d'achec on l'initialise à 0
+            if (!int.TryParse(Properties.Settings.Default.numTicket.ToString(), out numTicket))
+            {
+                numTicket = 0;
+                Properties.Settings.Default.numTicket = "0";
+            }
+
+            return numTicket;
         }
     }
 }

@@ -59,5 +59,10 @@ namespace HOLE_FOODS
                 return false;
             }
         }
+
+        public static void userInformation(String message)
+        {
+            MessageBox.Show(message, "Information");
+        }
     }
 }
